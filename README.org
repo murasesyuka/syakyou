@@ -1,0 +1,19 @@
+
+* reading the Programing Coq
+
+  [[http://www.iij-ii.co.jp/lab/techdoc/coqt/][Programing Coq]]
+
+** Coqを始めよう
+
+   
+*** Eval compute in
+
+    "View -> Show Query Pane" or Esc
+
+*** はじめての証明
+
+    Q. TypeとPropの違いは？
+
+** 
+
+
