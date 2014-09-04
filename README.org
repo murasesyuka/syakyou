@@ -14,6 +14,43 @@
 
     Q. TypeとPropの違いは？
 
-** 
+** Proof-editing mode であそぼう
 
+*** proof-editing mode での証明
+
+**** 証明してみる(1)
+
+     A. := の後は定義
+     A. 型の後に定義を書かずに"."を書くことでproof-editing mode
+
+**** Definition 以外のコマンド
+
+     "Templates -> *"
+
+**** 証明してみる(2)
+
+     P. forall (P Q : Prop), (forall P : Prop, (P -> Q) -> Q) -> ((P -> Q) -> P) ->  P
+
+     Q. "apply H0"しろと言うが、applyとは何者ぞ？
+     Q. 証明完了らしいが意味不明だ！
+
+     A. subgoalを後ろからapplyしていくっぽい
+
+**** not、or、and の定義と証明
+***** not
+      
+      ?. unfold not.しても、coq8.4pl4ではsubgoalに変化無し
+      
+***** or
+      
+      Q. apply or_introl.で、Error: Impossible to unify "or ?197 ?198" with "Q \/ P".
+
+***** and
+
+      Q. destruct H. left.は駄目なのね
+      Q. apply conj.で、Error: Impossible to unify "and ?208 ?209" with "Q /\ P".
+
+
+      
+      
 
