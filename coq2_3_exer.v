@@ -1,4 +1,5 @@
 
+(* problem2 *)
 Goal forall (P Q R : Prop), (P -> Q) -> (Q -> R) -> P -> R.
 Proof.
 intros.
