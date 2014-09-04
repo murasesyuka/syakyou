@@ -50,7 +50,29 @@
       Q. destruct H. left.は駄目なのね
       Q. apply conj.で、Error: Impossible to unify "and ?208 ?209" with "Q /\ P".
 
+**** tactics
 
-      
-      
+***** 仮定に以下の H があるとき
+
+| H : forall X, A -> B | (サブゴールが B なら)  apply H, apply (H ○○○) |
+| H : ~ A              | (サブゴールが False なら) apply H                |
+| H : A \/ B           | case H, destruct H                               |
+| H : A /\ B           | case H, destruct H                               |
+|                      |                                                  |
+
+***** サブゴールが○○○のとき
+
+| forall X, A | intro, intros                                 |
+| A -> B      | intro, intros                                 |
+| ~ A         | intro                                         |
+| A \/ B      | left(apply or_introl), right(apply or_intror) |
+| A /\ B      | split(apply conj)                             |
+
+***** その他
+
+| 関数を定義の形に展開する | unfold      |
+| 自動証明                 | auto, tauto |
+
+     
+     
 
