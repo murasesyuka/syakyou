@@ -25,14 +25,20 @@ Qed.
 (* problem5 not Qed *)
 Goal forall(P : Prop), (forall (P : Prop), ~~P -> P) -> P \/ ~P.
 Proof.
+unfold not.
 intros.
-left.
 apply H.
-intro.
+intros.
 apply H0.
-apply H.
-intro.
+right.
+intros.
+apply H0.
+left.
 apply H1.
+Qed.
+
+
+
 
 
 
