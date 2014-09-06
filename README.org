@@ -79,4 +79,66 @@
     !. 問3、4はcoqideの助けで解けたが、問5は答え見たが意味不明＞＜、
 
     ?. problem0 は flip ($)だそうだが、Haskellで$は（なんか見たこと有るが）どう使う？
-** 
+
+** リストを扱う
+
+*** リストの定義
+
+    | 関数の定義     | Definition |
+    | 再帰関数の定義 | Fixpoint   | 
+
+    !. Fixpoint app コンパイルエラー
+    
+    #+BEGIN_SRC
+    Error:
+    In environment
+    app : forall A : Type, list A -> list A -> list A
+    A : Type
+    l : list A
+    l' : list A
+    x : A
+    xs : list A
+    The term "x" has type "A" while it is expected to have type "Type".
+    #+END_SRC
+
+    A. "cons A x (...)"にしたら通った。templateみたくテンプレート引数が必要なのか？新しいcoqは推論してくれない？
+
+*** リストの構造に関する帰納法
+
+    Note. 使用するので、Require Import List. しておくこと
+
+*** app_nil_r の証明
+
+    [[coq3_2_app_nil_r.v]]
+
+    Q. (左のテキストボックス)Show (右のテキストボックス)2 ってどうするの???
+    A. 意味分かった、出来た
+
+    !. "++ の定義から..."っていつ定義されたねん
+    A. appの定義のことね
+
+*** app の性質の証明
+
+    Q. inductionは、app > matchの両条件をそれぞれ満たすことよう分岐させる機能なの？
+    
+*** rev の性質
+
+    !. Fixpoint app同様に、rev *A* xs とAの型引数渡した
+    A. Require Import List. の標準は大丈夫な模様。自前定義の奴は型推論の記載が必要！？
+    
+*** タクティクまとめと帰納法を使った証明のテクニック
+
+    | induction x  | x について帰納法で証明を進める                                       |
+    | simpl        | サブゴールを簡約する                                                 |
+    | reflexivity  | サブゴールが等式の形で、両辺の値が等しいとき                         |
+    | f_equal      | apply (f_equal x) のようなもの、x は省略できる                       |
+    | rewrite x    | x の型が "forall 〜, a = b" のとき、サブゴールの a を b で書き換える |
+    | rewrite <- x | x の型が "forall 〜, a = b" のとき、サブゴールの b を a で書き換える |
+
+*** 演習
+    
+    Q. reflexivity.とはなにモノぞ
+    A. 反射性
+
+    Q. rewrite rev_app_distr.とは、、、
+    A. 
