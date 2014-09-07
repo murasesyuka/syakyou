@@ -120,6 +120,7 @@
 *** app の性質の証明
 
     Q. inductionは、app > matchの両条件をそれぞれ満たすことよう分岐させる機能なの？
+    A. induction(帰納法)だね
     
 *** rev の性質
 
