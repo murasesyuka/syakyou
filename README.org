@@ -45,6 +45,13 @@
       
       Q. apply or_introl.で、Error: Impossible to unify "or ?197 ?198" with "Q \/ P".
 
+      Q. 以下の"or_introl : A -> or A B"の、"A -> or A B"の論理式が、なぜ" or A B -> A"でない？
+
+      #+BEGIN_EXAMPLE
+      Inductive or (A B : Prop) : Prop :=
+        | or_introl : A -> or A B
+        | or_intror : B -> or A B.
+      #+END_EXAMPLE
 ***** and
 
       Q. destruct H. left.は駄目なのね
