@@ -89,7 +89,7 @@
 
     !. Fixpoint app コンパイルエラー
     
-    #+BEGIN_SRC
+    #+BEGIN_EXAMPLE
     Error:
     In environment
     app : forall A : Type, list A -> list A -> list A
@@ -99,7 +99,7 @@
     x : A
     xs : list A
     The term "x" has type "A" while it is expected to have type "Type".
-    #+END_SRC
+    #+END_EXAMPLE
 
     A. "cons A x (...)"にしたら通った。templateみたくテンプレート引数が必要なのか？新しいcoqは推論してくれない？
 
@@ -142,3 +142,52 @@
 
     Q. rewrite rev_app_distr.とは、、、
     A. 
+
+** 自然数を扱う
+   
+*** 自然数の定義
+
+    Q. "  | S p => *m* + mult p m"の、mで推論できないとエラー。なぜ出来ない？なんかRequireいる？
+    A.
+    
+
+*** 自然数に関する帰納法
+
+    !. "自然数に関する命題 P : list A -> Prop について..."って、list A -> Propなの？nat -> Propでなく？
+
+    !. "Inductive nat : Set := "と自前の定義のために、"Goal forall (n : nat), n = n + 0."の'+'の型推論が失敗してる？
+
+    Note. Require Import Arith. (* 自然数、算術演算系 *)
+
+*** 自然数の性質
+    
+**** 存在証明
+
+     defstructで、H の型が exists を使わずに表され、扱いやすい型になるとのこと
+     
+     #+BEGIN_EXAMPLE
+     H : exists m : nat, n = m * 4
+
+     -> destruct H.
+
+     x : nat
+     H : n = x * 4
+     #+END_EXAMPLE
+
+     Q. mult_assoc_reverseという定理が使えるって、使える定理をどう調べるんだ？
+     !. Command Pane -> Print mult_assoc_reverse で詳細情報get
+
+     #+BEGIN_EXAMPLE
+     ______________________________________(1/1)
+     n = x * 2 * 2
+     
+     -> rewrite mult_assoc_reverse.
+
+     n = x * (2 * 2)
+     #+END_EXAMPLE
+     
+**** 不等号
+
+     !. '=','<'等は、ブール値は返さない。型だから
+
+     Note. 推移 Transitive
