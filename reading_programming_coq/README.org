@@ -8,7 +8,10 @@
    
 *** Eval compute in
 
-    "View -> Show Query Pane" or Esc
+    |                 | codide                           | proofgeneral                           |
+    |-----------------+----------------------------------+----------------------------------------|
+    | Eval compute in | "View -> Show Query Pane" or Esc | "Eval compute in xxx."を書いて,c-c c-n |
+    | Print           |                                  |                                        |
 
 *** はじめての証明
 
