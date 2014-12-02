@@ -65,6 +65,10 @@ Example test_orb4: (orb true true ) = true.
 Proof. simpl. reflexivity. Qed.
 
 
+(* admit *)
+
+Definition admit {T: Type} : T. Admitted.
+
 (* 練習問題: ★ (nandb) *)
 
 
@@ -73,7 +77,7 @@ Definition nandb (b1:bool) (b2:bool) : bool :=
 
 
 Example test_nandb1: (nandb true false) = true.
-Proof. simpl. simpl.intros. reflexivity. Qed.
+Proof. simpl. simpl. intros. reflexivity. Qed.
 Example test_nandb2: (nandb false false) = true.
 Proof. simpl. reflexivity. Qed.
 Example test_nandb3: (nandb false true) = true.
@@ -83,14 +87,19 @@ Proof. simpl. reflexivity. Qed.
 
 (* 練習問題: ★ (andb3) *)
 
+
 Definition andb3 (b1:bool) (b2:bool) (b3:bool) : bool :=
-admit.
+  match b1 with
+    | false => false
+    | true => (andb b2 b3)
+  end.
 
 Example test_andb31: (andb3 true true true) = true.
-Admitted.
+Proof. reflexivity. Qed.
 Example test_andb32: (andb3 false true true) = false.
-Admitted.
+Proof. reflexivity. Qed.
 Example test_andb33: (andb3 true false true) = false.
-Admitted.
+Proof. reflexivity. Qed.
 Example test_andb34: (andb3 true true false) = false.
-Admitted.
+Proof. reflexivity. Qed.
+
