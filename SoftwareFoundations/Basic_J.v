@@ -8,15 +8,15 @@ Inductive day : Type :=
 | sunday : day.
 
 Definition next_weekday (d:day) : day :=
-match d with
-| monday => tuesday
-| tuesday => wednesday
-| wednesday => thursday
-| thursday => friday
-| friday => monday
-| saturday => monday
-| sunday => monday
-end.
+  match d with
+    | monday => tuesday
+    | tuesday => wednesday
+    | wednesday => thursday
+    | thursday => friday
+    | friday => monday
+    | saturday => monday
+    | sunday => monday
+  end.
 
 Eval simpl in (next_weekday friday).
 Eval simpl in (next_weekday (next_weekday saturday)).
@@ -24,8 +24,8 @@ Eval simpl in (next_weekday (next_weekday saturday)).
 Example test_next_weekday:
   (next_weekday (next_weekday saturday)) = tuesday.
 Proof.
-simpl.
-reflexivity.
+  simpl.
+  reflexivity.
 Qed.
 
 (* Bool Type *)
@@ -35,22 +35,22 @@ Inductive bool : Type :=
 | false : bool.
 
 Definition negb (b:bool) : bool :=
-match b with
-| true => false
-| false => true
-end.
+  match b with
+    | true => false
+    | false => true
+  end.
 
 Definition andb (b1:bool) (b2:bool) : bool :=
-match b1 with
-| true => b2
-| false => false
-end.
+  match b1 with
+    | true => b2
+    | false => false
+  end.
 
 Definition orb (b1:bool) (b2:bool) : bool :=
-match b1 with
-| true => true
-| false => b2
-end.
+  match b1 with
+    | true => true
+    | false => b2
+  end.
 
 Example test_orb1: (orb true false) = true.
 Proof. simpl. reflexivity. Qed.
@@ -73,7 +73,7 @@ Definition admit {T: Type} : T. Admitted.
 
 
 Definition nandb (b1:bool) (b2:bool) : bool :=
-(negb (andb b1 b2)).
+  (negb (andb b1 b2)).
 
 
 Example test_nandb1: (nandb true false) = true.
@@ -114,17 +114,17 @@ Check negb.
 (* Module *)
 
 Module Playground1.
-
-Inductive nat : Type :=
+  
+  Inductive nat : Type :=
 | O : nat
 | S : nat -> nat. (* typo *)
-
-Definition pred (n : nat) : nat :=
-match n with
-| O => O
-| S n' => n'
-end.
-
+  
+  Definition pred (n : nat) : nat :=
+    match n with
+      | O => O
+      | S n' => n'
+    end.
+  
 End Playground1.
 
 Definition minustwo (n : nat) : nat :=
