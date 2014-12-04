@@ -4,14 +4,14 @@ Require Import List.
 
 Theorem rev_involutive : forall (A : Type)(l : list A), rev (rev l) = l.
 Proof.
-induction l.
-simpl.
-reflexivity.
-simpl.
-rewrite rev_app_distr.
-simpl.
-f_equal.
-apply IHl.
+  induction l.
+  simpl.
+  reflexivity.
+  simpl.
+  rewrite rev_app_distr.
+  simpl.
+  f_equal.
+  apply IHl.
 Qed.
 
 (*(* problem 7 *)
@@ -24,14 +24,14 @@ Fixpoint fold_right (A B : Type)(f : B -> A -> A)(a0 : A)(l : list B) : A :=
 Theorem fold_right_app : forall (A B : Type)(f : B -> A -> A)(l l' : list B)(i : A),
   fold_right f i (l ++ l') = fold_right f (fold_right f i l') l.
 Proof.
-intros.
-induction l.
-simpl.
-reflexivity.
-
-simpl.
-f_equal.
-apply IHl.
+  intros.
+  induction l.
+  simpl.
+  reflexivity.
+  
+  simpl.
+  f_equal.
+  apply IHl.
 Qed.
 
 

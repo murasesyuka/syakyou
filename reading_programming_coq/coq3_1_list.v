@@ -1,7 +1,7 @@
 
 Inductive list (A : Type) : Type :=
-  | nil : list A
-  | cons : A -> list A -> list A.
+| nil : list A
+| cons : A -> list A -> list A.
 
 (* copy code is error
 Fixpoint app (A : Type)(l l' : list A) : list A :=
@@ -13,8 +13,8 @@ Fixpoint app (A : Type)(l l' : list A) : list A :=
 
 Fixpoint app (A : Type)(l l' : list A) : list A :=
   match l with
-  | nil => l'
-  | cons x xs => cons A x ( app A xs l' )(* Add cons *A* x (...) *)
+    | nil => l'
+    | cons x xs => cons A x ( app A xs l' )(* Add cons *A* x (...) *)
   end.
 
 Open Scope list_scope.

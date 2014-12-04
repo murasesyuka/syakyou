@@ -12,6 +12,7 @@ Definition id (A : Type)(x : A) : A := x.
 Definition id' : forall (A : Type), A -> A := fun A x => x.
   
 Print plus.
+Print plus'.
 
 Eval compute in plus 1 2.
 
