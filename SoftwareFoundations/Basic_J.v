@@ -115,15 +115,15 @@ Check negb.
 
 Module Playground1.
   
-  Inductive nat : Type :=
+Inductive nat : Type :=
 | O : nat
 | S : nat -> nat. (* typo *)
   
-  Definition pred (n : nat) : nat :=
-    match n with
-      | O => O
-      | S n' => n'
-    end.
+Definition pred (n : nat) : nat :=
+  match n with
+    | O => O
+    | S n' => n'
+  end.
   
 End Playground1.
 
@@ -134,5 +134,61 @@ Definition minustwo (n : nat) : nat :=
     | S (S n') => n'
   end.
 
+
+Check O.
+Check (S O).
+Check (S (S O)).
+Check (S (S (S O))).
 Check (S (S (S (S O)))).
 Eval simpl in (minustwo 4).
+
+Check S.
+Check pred.
+Check minustwo.
+
+Fixpoint evenb (n:nat) : bool :=
+  match n with
+    | O => true
+    | S O => false
+    | S (S n') => evenb n'
+  end.
+
+Definition oddb (n:nat) : bool := negb (evenb n).
+
+Example test_oddb1: (oddb (S O)) = true.
+Proof. simpl. reflexivity. Qed.
+Example test_oddb2: (oddb (S (S (S (S O))))) = false.
+Proof. simpl. reflexivity. Qed.
+
+
+Module Playground2.
+
+Fixpoint plus (n m:nat) : nat :=
+  match n with
+    | O => m
+    | S n' => S (plus n' m)
+  end.
+
+Eval simpl in (plus (S (S (S O))) (S (S 0))).
+Check plus.
+
+Fixpoint mult (n m:nat) : nat :=
+  match n with
+    | O => O
+    | S n' => plus m (mult n' m)
+  end.
+
+Eval simpl in (mult (S (S (S O))) (S (S 0))).
+Check mult.
+
+Fixpoint minus (n m:nat): nat:=
+  match n, m with
+    | O, _ => O
+    | S _, O => n
+    | S n', S m' => minus n' m'
+  end.
+
+Eval simpl in (minus (S (S (S O))) (S (S 0))).
+
+end Playground2.
+
