@@ -103,3 +103,36 @@ Proof. reflexivity. Qed.
 Example test_andb34: (andb3 true true false) = false.
 Proof. reflexivity. Qed.
 
+
+(* 関数の型 *)
+
+Check (negb true).
+
+Check negb.
+
+
+(* Module *)
+
+Module Playground1.
+
+Inductive nat : Type :=
+| O : nat
+| S : nat -> nat. (* typo *)
+
+Definition pred (n : nat) : nat :=
+match n with
+| O => O
+| S n' => n'
+end.
+
+End Playground1.
+
+Definition minustwo (n : nat) : nat :=
+  match n with
+    | O => O
+    | S O => O
+    | S (S n') => n'
+  end.
+
+Check (S (S (S (S O)))).
+Eval simpl in (minustwo 4).
