@@ -190,5 +190,129 @@ Fixpoint minus (n m:nat): nat:=
 
 Eval simpl in (minus (S (S (S O))) (S (S 0))).
 
-end Playground2.
+End Playground2.
+
+
+(* 演習問題: ★ (factorial) *)
+
+Fixpoint factorial (n:nat) : nat :=
+  match n with
+    | O => S O
+    | S n' => mult n (factorial n')
+  end.
+
+Example test_factorial1: (factorial 3) = 6.
+Proof. simpl. reflexivity. Qed.
+
+Example test_factorial2: (factorial 5) = (mult 10 12).
+Proof. simpl. reflexivity. Qed.
+
+(* "notation"（表記法） *)
+          
+Notation "x + y" := (plus x y) (at level 50, left associativity) : nat_scope.
+Notation "x - y" := (minus x y) (at level 50, left associativity) : nat_scope.
+Notation "x * y" := (mult x y) (at level 40, left associativity) : nat_scope.
+
+Check ((0 + 1) + 1).
+
+Check O%nat.
+
+Fixpoint beq_nat (n m:nat):bool :=
+  match n with
+    | O => match m with
+             | O => true
+             | S m' => false
+           end
+    | S n' => match m with
+                | O => true
+                | S m' => beq_nat n' m'
+              end
+  end.
+
+Fixpoint ble_nat (n m : nat) : bool :=
+  match n with
+    | O => true
+    | S n' =>
+      match m with
+        | O => false
+        | S m' => ble_nat n' m'
+      end
+  end.
+
+Example test_ble_nat1: (ble_nat 2 2) = true.
+Proof. simpl. reflexivity. Qed.
+Example test_ble_nat2: (ble_nat 2 4) = true.
+Proof. simpl. reflexivity. Qed.
+Example test_ble_nat3: (ble_nat 4 2) = false.
+Proof. simpl. reflexivity. Qed.
+
+
+
+(* 練習問題: ★★ (blt_nat) *)
+
+Fixpoint blt_nat (n m : nat) : bool :=
+  andb (ble_nat n m) (negb (beq_nat n m)).
+  (*
+  match n with
+    | O => match m with
+             | O => false
+             | _ => true
+           end
+    | S n' => match m with
+                | O => false
+                | S m' => blt_nat n' m'
+              end
+  end.
+   *)
+
+
+Example test_blt_nat1: (blt_nat 2 2) = false.
+Proof. simpl. reflexivity. Qed.
+Example test_blt_nat2: (blt_nat 2 4) = true.
+Proof. simpl. reflexivity. Qed.
+Example test_blt_nat3: (blt_nat 4 2) = false.
+Proof. simpl. reflexivity. Qed.
+
+
+(* 簡約を用いた証明 *)
+
+Theorem plus_O_n : forall n:nat, O + n = n.
+Proof.
+  simpl.
+  reflexivity.
+Qed.  
+
+Theorem plus_O_n' : forall n:nat, O + n = n.
+Proof.
+  reflexivity.
+Qed.  
+
+
+(* 練習問題: ★, optional (simpl_plus) *)
+
+
+Eval simpl in (forall n:nat, n + 0 = n).
+
+Eval simpl in (forall n:nat, 0 + n = n).
+
+(* 0+nは無条件で0に簡約されるもよう *)
+
+Theorem plus_O_n'' : forall n:nat, O + n = n.
+Proof.
+  intros.
+  reflexivity.
+Qed.
+
+Theorem plus_1_l : forall n:nat, 1 + n = S n.
+Proof.
+  intros n. reflexivity. Qed.
+
+Theorem mult_0_l : forall n:nat, 0 * n = 0.
+Proof.
+  intros n.
+  simpl.
+  reflexivity.
+Qed.
+
+
 
