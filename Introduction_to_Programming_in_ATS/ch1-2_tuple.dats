@@ -7,5 +7,9 @@ val xyz = '("ATS", 42, 3.14)
 
 val _ = $showtype xyz
 
-implement main0 () = print xyz.0
-ch
+implement main0 () = 
+  (
+    println! xyz.0;
+    println! xyz.1;
+    println! xyz.2;
+  )
