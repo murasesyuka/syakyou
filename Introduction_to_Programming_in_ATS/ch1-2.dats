@@ -1,10 +1,13 @@
 #include "share/atspre_define.hats"
 #include "share/atspre_staload.hats"
 
-val x =1+2
+val x = 1+2
 
-val area = let val PI= 3.14 and radius = 10.0 
-  in PI * radius * radius
+val area = 
+  let 
+    val PI= 3.14 and radius = 10.0 
+  in 
+    PI * radius * radius
   end
 
 %{
