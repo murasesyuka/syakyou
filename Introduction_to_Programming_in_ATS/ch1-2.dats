@@ -8,14 +8,10 @@ val area = let val PI= 3.14 and radius = 10.0
   end
 
 %{
-void print_bool(int b) {
-  printf("%d\n", b);
-}
-
 #define get_true() 0
 %}
 
-extern fun print_bool:void = "mac#"
-extern fun get_false ():bool = "mac#get_true"
+//extern fun print_bool:void = "mac#"
+extern fun get_false():bool = "mac#get_true"
 
-implement main0 () = print get_false()
+implement main0 () = print(get_false())
