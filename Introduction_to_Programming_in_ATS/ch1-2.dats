@@ -1,7 +1,7 @@
 #include "share/atspre_define.hats"
 #include "share/atspre_staload.hats"
 
-val x = 1+2
+val x = ~1 + 2 //nagative use tilde
 
 val area = 
   let 
@@ -25,5 +25,8 @@ implement main0 () =
   (
     print_bool(true); 
     print_bool(false);
-    print(get_false());
+    println!(get_false());
+    
+    println! x;
+    println! area;
   )
