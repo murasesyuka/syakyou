@@ -7,7 +7,8 @@ datatype intopt =
   | intopt_none of () 
   | intopt_some of (int)
 
-val x = intopt_some(3)
+//val x = intopt_some(3)
+val x = intopt_none()
     
 implement main0 () = case+ x of
       | intopt_some(x) => println! x
