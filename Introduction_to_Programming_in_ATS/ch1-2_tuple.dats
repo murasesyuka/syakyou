@@ -4,7 +4,7 @@
 //patscc -DATS_MEMALLOC_LIBC ch2_tuple.dats 
 
 val xyz = '("ATS", 42, 3.14)
-val (x,y,z) = xyz
+val '(x,y,z) = xyz
 
 val _ = $showtype xyz
 
