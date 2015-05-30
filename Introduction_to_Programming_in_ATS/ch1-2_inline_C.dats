@@ -3,12 +3,18 @@
 
 val x = ~1 + 2 //nagative use tilde
 
+(*
 val area = 
   let 
     val PI= 3.14 and radius = 10.0 
   in 
     PI * radius * radius
   end
+*)
+
+var area = PI * radius * radius where {
+  val PI = 3.14 and radius = 10
+}
 
 %{
 void print_bool(int b) {
