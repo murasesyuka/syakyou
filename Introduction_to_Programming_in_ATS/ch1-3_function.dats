@@ -37,7 +37,7 @@ fun sum3 (m: int, n: int): int =
     sum3(m, mn2-1) + mn2 + sum3(mn2+1,n)
   end else 0
     
-  
+ 
 implement main0 () = (
   println! (square(9.0));
   println! (area_of_ring(10.0, 9.0));
