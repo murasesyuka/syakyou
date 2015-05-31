@@ -34,6 +34,11 @@ fun prod(n: int): int = ifold(n, lam(res, x) => res * x, 1)
 
 fun sqrsum(n: int): int = ifold(n, lam(res, x) => res + x * x, 0)
 
+fun ifold2(n: int, f: (int,int) -<cloref1> int, ini: int): int  =
+  if n > 0 then f(ifold2(n-1, f, ini), n) else ini
+
+fun sqrsum2(n: int): int = ifold2(n, lam(res, x) => res + x * x, 0)
+
 implement main0 () = (
   println! (sum_cloref(10));
   println! (sum_envless(10));
@@ -44,4 +49,5 @@ implement main0 () = (
   println! (prod(5));
   
   println! (sqrsum(5));
-)
+  println! (sqrsum2(5));
+) 
