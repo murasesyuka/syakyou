@@ -32,6 +32,8 @@ fun ifold(n: int, f: (int,int) -> int, ini: int): int  =
 fun sum(n: int): int  = ifold(n, lam(res, x) => res + x, 0)
 fun prod(n: int): int = ifold(n, lam(res, x) => res * x, 1)
 
+fun sqrsum(n: int): int = ifold(n, lam(res, x) => res + x * x, 0)
+
 implement main0 () = (
   println! (sum_cloref(10));
   println! (sum_envless(10));
@@ -40,4 +42,6 @@ implement main0 () = (
   
   println! (sum(5));
   println! (prod(5));
+  
+  println! (sqrsum(5));
 )
