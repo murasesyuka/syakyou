@@ -26,8 +26,11 @@ fun rtfind(f: int -> int): int =
     loop (f, 0)
   end
 
-fun sum(n: int): int  = if n>0 then sum(n-1)  + n else 0
-fun prod(n: int): int = if n>0 then prod(n-1) * n else 1
+fun ifold(n: int, f: (int,int) -> int, ini: int): int  = 
+  if n > 0 then f(ifold(n-1, f, ini), n) else ini
+
+fun sum(n: int): int  = ifold(n, lam(res, x) => res + x, 0)
+fun prod(n: int): int = ifold(n, lam(res, x) => res * x, 1)
 
 implement main0 () = (
   println! (sum_cloref(10));
