@@ -1,14 +1,23 @@
 #include "share/atspre_define.hats"
 #include "share/atspre_staload.hats"
 
-fun sum(n: int): int = 
+fun sum_cloref(n: int): int = 
   let
     fun loop(i: int, res: int):<cloref1> int =
-      if i <= qn then loop (i+1, res+i) else res
+      if i <= n then loop (i+1, res+i) else res
   in
     loop(1, 0)
   end
 
+fun sum_envless(n: int): int = 
+  let
+    fun loop(n:int, i: int, res: int): int =
+      if i <= n then loop (n, i+1, res+i) else res
+  in
+    loop(n, 1, 0)
+  end
+  
 implement main0 () = (
-  println! (sum(10));
+  println! (sum_cloref(10));
+  println! (sum_envless(10));
 )
