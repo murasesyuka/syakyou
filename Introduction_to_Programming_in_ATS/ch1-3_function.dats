@@ -22,10 +22,15 @@ fn sqrsum2 (xy: int2): int = let
   val x = xy.0 and y = xy.1 in x*x+y*y
   end
 
+fn abs(x: double): double = if x >= 0 then x else ~x
 
 implement main0 () = (
   println! (square(9.0));
   println! (area_of_ring(10.0, 9.0));
   
   println! (sqrsum2( @(1,2) ));
+  
+  println! ( 0 < 0.0);
+  //println! (abs(5.0));
+  //println! (abs(~3.0));
 )
