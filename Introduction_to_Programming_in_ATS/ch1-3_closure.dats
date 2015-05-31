@@ -17,7 +17,21 @@ fun sum_envless(n: int): int =
     loop(n, 1, 0)
   end
   
+(* Higher-Order Functions *)
+fun rtfind(f: int -> int): int = 
+  let
+    fun loop (f: int -> int, n: int) : int =
+      if f(n) = 0 then n else loop (f, n+1)
+  in
+    loop (f, 0)
+  end
+
+
+val f = lam(x:int) => x*x - x - 110
+
 implement main0 () = (
   println! (sum_cloref(10));
   println! (sum_envless(10));
+  
+  println! (rtfind(f));
 )
