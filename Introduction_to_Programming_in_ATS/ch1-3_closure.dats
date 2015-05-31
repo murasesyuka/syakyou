@@ -26,12 +26,15 @@ fun rtfind(f: int -> int): int =
     loop (f, 0)
   end
 
-
-val f = lam(x:int) => x*x - x - 110
+fun sum(n: int): int  = if n>0 then sum(n-1)  + n else 0
+fun prod(n: int): int = if n>0 then prod(n-1) * n else 1
 
 implement main0 () = (
   println! (sum_cloref(10));
   println! (sum_envless(10));
   
-  println! (rtfind(f));
+  println! (rtfind(lam(x:int) => x*x - x - 110));
+  
+  println! (sum(5));
+  println! (prod(5));
 )
