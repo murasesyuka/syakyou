@@ -240,7 +240,7 @@ Definition nandb (b1:bool) (b2:bool) : bool :=
     "[Proof. reflexivity. Qed.]" *)
 
 Example test_nandb1:               (nandb true false) = true.
-(* FILL IN HERE *) Admitted.
+Proof. simpl. reflexivity. Qed.
 Example test_nandb2:               (nandb false false) = true.
 (* FILL IN HERE *) Admitted.
 Example test_nandb3:               (nandb false true) = true.
