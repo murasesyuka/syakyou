@@ -649,6 +649,13 @@ Proof. reflexivity. Qed.
     of this lecture, and yet more in future lectures. *)
 
 
+Eval simpl in (forall n:nat, n + 0 = n).
+
+Eval simpl in (forall n:nat, 0 + n = n).
+
+(* already exsit plus_0_n? *)
+
+
 (** Step through these proofs in Coq and notice how the goal and
     context change. *)
 
