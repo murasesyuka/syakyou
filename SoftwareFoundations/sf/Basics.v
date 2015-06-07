@@ -582,6 +582,7 @@ Example test_blt_nat2:             (blt_nat 2 4) = true.
 Proof. simpl. reflexivity. Qed.
 Example test_blt_nat3:             (blt_nat 4 2) = false.
 Proof. simpl. reflexivity. Qed.
+
 (** [] *)
 
 (* ###################################################################### *)
@@ -615,6 +616,8 @@ Theorem plus_O_n : forall n : nat, 0 + n = n.
 Proof.
   intros n. reflexivity.  Qed.
 
+Theorem plus_0_n' : forall n : nat, 0 + n = n.
+Proof. reflexivity. Qed.
 
 (** (_Note_: You may notice that the above statement looks
     different in the original source file and the final html output. In Coq
