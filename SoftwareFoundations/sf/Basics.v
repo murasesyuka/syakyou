@@ -848,7 +848,8 @@ Proof.
 Theorem zero_nbeq_plus_1 : forall n : nat,
   beq_nat 0 (n + 1) = false.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros n. destruct beg_nat n as [| n'].
+  
 (** [] *)
 
 (* ###################################################################### *)
