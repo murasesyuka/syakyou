@@ -891,7 +891,22 @@ Theorem andb_eq_orb :
   (andb b c = orb b c) ->
   b = c.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros b c.
+  destruct b.
+  destruct c.
+  
+    reflexivity.
+  
+    simpl.
+    intros H.
+    rewrite H.
+    reflexivity.
+
+    simpl.
+    intros H.
+    rewrite H.
+    reflexivity.
+  Qed.
 
 (** **** Exercise: 3 stars (binary) *)
 (** Consider a different, more efficient representation of natural
