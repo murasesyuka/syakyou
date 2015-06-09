@@ -861,12 +861,25 @@ Proof.
 (** Use the tactics you have learned so far to prove the following 
     theorem about boolean functions. *)
 
+Theorem andb_true_elim1 : forall b c : bool,
+  andb b c = true -> b = true.
+Proof.
+  intros b c H.
+  destruct b.
+  Case "b = true".
+    reflexivity.
+  Case "b = false".
+    rewrite ← H. reflexivity. Qed.
+
 Theorem identity_fn_applied_twice : 
   forall (f : bool -> bool), 
   (forall (x : bool), f x = x) ->
   forall (b : bool), f (f b) = b.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros f x.
+  destruct b.
+  Case "b = true".
+  intros b.
 
 (** Now state and prove a theorem [negation_fn_applied_twice] similar
     to the previous one but where the second hypothesis says that the
