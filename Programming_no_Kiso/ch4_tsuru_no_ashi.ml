@@ -35,9 +35,10 @@ let tsurukame head_sum leg_sum =
       then t
       else tsurukame' (t-1) head_sum leg_sum in
   tsurukame' head_sum head_sum leg_sum    
-		    
+	
+(* test *)
 let tks2_6 =  tsurukame 2 6  = 1
 let tks3_10 = tsurukame 3 10 = 1
 let tks3_8 =  tsurukame 3 8  = 2
-
+(* test : fail case *)
 let tks1_3 =  tsurukame 1 3  = -1
