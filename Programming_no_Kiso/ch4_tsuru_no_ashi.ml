@@ -28,11 +28,16 @@ let tk21 = tsurukame_no_ashi 2 1 = 8
 (* tsurukame : int -> int -> int * int *)
 let tsurukame head_sum leg_sum = 
   let rec tsurukame' t head_sum leg_sum = 
-    if (tsuru_no_ashi t + kame_no_ashi (head_sum - t)) = leg_sum 
-    then t
-    else tsurukame' (t-1) head_sum leg_sum in
+    if t < 0
+    then -1
+    else
+      if (tsuru_no_ashi t + kame_no_ashi (head_sum - t)) = leg_sum 
+      then t
+      else tsurukame' (t-1) head_sum leg_sum in
   tsurukame' head_sum head_sum leg_sum    
 		    
 let tks2_6 =  tsurukame 2 6  = 1
 let tks3_10 = tsurukame 3 10 = 1
 let tks3_8 =  tsurukame 3 8  = 2
+
+let tks1_3 =  tsurukame 1 3  = -1
