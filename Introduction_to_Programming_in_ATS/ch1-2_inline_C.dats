@@ -12,7 +12,7 @@ val area =
   end
 *)
 
-var area = PI * radius * radius where {
+val area = PI * radius * radius where {
   val PI = 3.14 and radius = 10
 }
 
