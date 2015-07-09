@@ -39,3 +39,14 @@
       match文とのこと
 
 ** 8章　レコード
+
+*** 8.2 レコードの構文
+
+    ?. typeの宣言は不要？
+    
+    #+BEGIN_SRC ocaml
+    type gakusei_t { namae = "asai"; tensuu = 70; seiseki = "B" };;
+    #+END_SRC
+
+
+    
