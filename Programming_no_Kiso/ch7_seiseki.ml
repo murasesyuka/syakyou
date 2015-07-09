@@ -15,7 +15,8 @@ let test4 = seiseki ("hoge",60) = "hoge不可"
 				   
 (* purpose : add *)
 (* add : int * int -> int *)
-let add pair = 0
+let add pair = match pair with
+    (a, b) -> 0
 
 (* test *)
 let test_add1 = add (0, 0) = 0
