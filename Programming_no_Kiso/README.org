@@ -41,12 +41,11 @@
 ** 8章　レコード
 
 *** 8.2 レコードの構文
-
-    ?. typeの宣言は不要？
+    
+    ?. typeの宣言は不要？ -> "8.5 ユーザによる型定義"で型定義を覚える
     
     #+BEGIN_SRC ocaml
     type gakusei_t { namae = "asai"; tensuu = 70; seiseki = "B" };;
     #+END_SRC
 
-
-    
+*** 8.5 ユーザによる型定義
