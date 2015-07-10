@@ -15,13 +15,25 @@ type okozukai_t = {
     name : string;
     price : int;
     shop : string;
-    data  : string;
+    date  : string;
   }
 
-let kozukai1 = { name = "hoge"; price = 42; shop = "kyouto"; data = "2015-07-10" }
-let kozukai2 = { name = "homu"; price = 72; shop = "oosaka"; data = "2015-07-11" }
-let kozukai3 = { name = "fuga"; price = 21; shop = "hyougo"; data = "2015-07-12" }		 
+let kozukai1 = { name = "hoge"; price = 42; shop = "kyouto"; date = "2015-07-10" }
+let kozukai2 = { name = "homu"; price = 72; shop = "oosaka"; date = "2015-07-11" }
+let kozukai3 = { name = "fuga"; price = 21; shop = "hyougo"; date = "2015-07-12" }		 
 
+type date_t = {
+    month : int;
+    day : int;
+  }
+		 
+type person_t = {
+    height : int;
+    weight : int;
+    date : date_t;
+  }
+
+let person1 = { height = 170; weight = 70; date = {month = 7; day = 10}}
 	      
 (* purpose : todo *)
 (* todo : *)
