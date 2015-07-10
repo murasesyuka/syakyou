@@ -12,15 +12,15 @@ let book3 = {title = "baz"; author = "me"; publisher = "you"; price = 108; isbn 
 
 
 type okozukai_t = {
-    namae : string;
-    nedan : int;
-    basyo : string;
+    name : string;
+    price : int;
+    shop : string;
     data  : string;
   }
 
-let kozukai1 = { namae = "hoge"; nedan = 42; basyo = "kyouto"; data = "2015-07-10" }
-let kozukai2 = { namae = "homu"; nedan = 72; basyo = "oosaka"; data = "2015-07-11" }
-let kozukai3 = { namae = "fuga"; nedan = 21; basyo = "hyougo"; data = "2015-07-12" }		 
+let kozukai1 = { name = "hoge"; price = 42; shop = "kyouto"; data = "2015-07-10" }
+let kozukai2 = { name = "homu"; price = 72; shop = "oosaka"; data = "2015-07-11" }
+let kozukai3 = { name = "fuga"; price = 21; shop = "hyougo"; data = "2015-07-12" }		 
 
 	      
 (* purpose : todo *)
