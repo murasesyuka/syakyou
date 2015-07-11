@@ -10,6 +10,9 @@ datatype intopt =
 //val x = intopt_some(3)
 val x = intopt_none()
     
-implement main0 () = case+ x of
-      | intopt_some(x) => println! x
-      | intopt_none => println! "none"
+fun foo (i: intopt): int = 
+  case+ i of
+  | intopt_some(x) => x
+  | intopt_none => 0
+    
+implement main0 () = println! (foo(x))
