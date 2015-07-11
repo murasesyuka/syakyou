@@ -15,13 +15,13 @@ fun {a,b: t@ype} swap(xy: (a, b)) : (b, a) = (xy.1, xy.0)
 fun {a: t@ype}{b: t@ype} swap2(xy: (a, b)) : (b, a) = (xy.1, xy.0)
 
 
-val a = swap<intchar>((1,'b'))
+(* val a = swap<intchar>((1,'b')) *)
 val b = swap2<int><char>( (1,'b') )
 
 (* polymorphic function *******************************************************)
 val _ = $showtype a
 
 implement main0 () = (
-  println! ( a );
+  (* println! ( a ); *)
   println! ( b.0 );
 )
