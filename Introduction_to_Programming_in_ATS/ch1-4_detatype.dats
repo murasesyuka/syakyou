@@ -46,9 +46,13 @@ datatype charlst =
   | charlst_cons of (char, charlst)
 
 fun charlst_length
-  (cs: charlst):int = case cs of
-  | charlst_nil() => 0
-  | charlst_cons(_, xs) => 1+charlst_length(xs)
+  (cs: charlst):int = let 
+  fun loop (cs: charlst, n: int):int = case cs of
+  | charlst_nil() => n
+  | charlst_cons(_, xs) => loop(xs, n+1)
+  in
+    loop(cs, 0)
+  end
   
 val cl1 = charlst_nil()
 val cl2 = charlst_cons('a', charlst_nil())
