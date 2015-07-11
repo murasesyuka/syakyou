@@ -17,9 +17,29 @@ fun foo (i: intopt): int =
   case+ i of
   | intopt_some(x) => x
   | intopt_none => 0
+   
+datatype wday =
+  | Monday of ()
+  | Tuesday of ()
+  | Wednesday of ()
+  | Thursday of ()
+  | Friday of ()
+  | Saturday of ()
+  | Sunday of ()
+// end of [wday]
+
+fun isWeekday (x: wday) : bool =
+  case- x of
+  | Monday => true
+  | Tuesday => true
+  | Wednesday => true
+  | Thursday => true
     
 implement main0 () = 
   (
     println! (foo(x));
     println! (foo(y));
+    
+    println! (isWeekday(Monday));
+    println! (isWeekday(Monday()));
   )
