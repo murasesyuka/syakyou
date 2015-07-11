@@ -87,6 +87,18 @@ val bst = B(B(E(),"right",E()),
   "root",
   B(E(),"left",E()))
 
+fun bstree_search(t0: bstree, k0: string): bool =
+  case+ t0 of
+  | E() => false
+  | B(t1, k, t2) => let 
+    val ret = compare(k0, k)
+  in
+    case+ 0 of
+    | _ when ret > 0 => bstree_search(t1, k0)
+    | _ when ret < 0 => bstree_search(t2, k0)
+    | _ => true
+  end
+
 implement main0 () = 
   (
     println! (foo(x));
