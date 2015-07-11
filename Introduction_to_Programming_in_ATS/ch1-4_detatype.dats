@@ -17,7 +17,10 @@ fun foo (i: intopt): int =
   case+ i of
   | intopt_some(x) => x
   | intopt_none => 0
-   
+
+  (* 
+Enumrative datatype 
+*)  
 datatype wday =
   | Monday of ()
   | Tuesday of ()
@@ -29,16 +32,28 @@ datatype wday =
 // end of [wday]
 
 fun isWeekday (x: wday) : bool =
-  case x of
-  | Monday() => true
-  | Tuesday() => true
-  | Wednesday() => true
-  | Thursday() => true
-  | Friday() => true
+  case+ x of
   | Saturday() => false
   | Sunday() => false
+  | _ => true
 // end of [isWeekday]
     
+  (* 
+Recursive datatype 
+*)  
+datatype charlst = 
+  | charlst_nil of ()
+  | charlst_cons of (char, charlst)
+
+fun charlst_length
+  (cs: charlst):int = case cs of
+  | charlst_nil() => 0
+  | charlst_cons(_, xs) => 1+charlst_length(xs)
+  
+val cl1 = charlst_nil()
+val cl2 = charlst_cons('a', charlst_nil())
+val cl3 = charlst_cons('b',charlst_cons('a', charlst_nil()))
+
 implement main0 () = 
   (
     println! (foo(x));
@@ -46,4 +61,10 @@ implement main0 () =
     
     println! (isWeekday(Monday));
     println! (isWeekday(Monday()));
+    println! (isWeekday(Sunday()));
+
+    println! (charlst_length(cl1));
+    println! (charlst_length(cl2));
+    println! (charlst_length(cl3));
+
   )
