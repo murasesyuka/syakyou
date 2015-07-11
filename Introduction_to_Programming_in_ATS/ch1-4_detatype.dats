@@ -58,6 +58,14 @@ val cl1 = charlst_nil()
 val cl2 = charlst_cons('a', charlst_nil())
 val cl3 = charlst_cons('b',charlst_cons('a', charlst_nil()))
 
+  (* 
+Exhaustiveness 
+*)
+fun charlst_last(cs: charlst): char =
+  case cs of
+  | charlst_cons (x, charlst_nil()) => x
+  | charlst_cons (_, xs) => charlst_last(xs)
+
 implement main0 () = 
   (
     println! (foo(x));
@@ -71,4 +79,7 @@ implement main0 () =
     println! (charlst_length(cl2));
     println! (charlst_length(cl3));
 
+    println! (charlst_last(cl1));
+    println! (charlst_last(cl2));
+    println! (charlst_last(cl3));
   )
