@@ -30,11 +30,11 @@ datatype wday =
 
 fun isWeekday (x: wday) : bool =
   case x of
-  | Monday => true
-  | Tuesday => true
-  | Wednesday => true
-  | Thursday => true
-  | Friday => true
+  | Monday() => true
+  | Tuesday() => true
+  | Wednesday() => true
+  | Thursday() => true
+  | Friday() => true
   | Saturday() => false
   | Sunday() => false
 // end of [isWeekday]
