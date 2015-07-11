@@ -62,9 +62,30 @@ val cl3 = charlst_cons('b',charlst_cons('a', charlst_nil()))
 Exhaustiveness 
 *)
 fun charlst_last(cs: charlst): char =
-  case cs of
+  case+ cs of
+  | charlst_nil () => '0'
   | charlst_cons (x, charlst_nil()) => x
   | charlst_cons (_, xs) => charlst_last(xs)
+
+datatype bstree =
+  | E of ()
+  | B of (bstree,string,bstree)
+
+fun bstree_inord(t0: bstree, fwork: string -<cloref1> void):void =
+(
+  case+ t0 of
+  | E() => ()
+  | B(t1, k, t2) =>
+    (
+      bstree_inord(t1, fwork);
+      fwork(k);
+      bstree_inord(t2, fwork);
+    )
+)
+
+val bst = B(B(E(),"right",E()),
+  "root",
+  B(E(),"left",E()))
 
 implement main0 () = 
   (
@@ -82,4 +103,6 @@ implement main0 () =
     println! (charlst_last(cl1));
     println! (charlst_last(cl2));
     println! (charlst_last(cl3));
+
+    bstree_inord(bst, lam x => println!(x));
   )

@@ -6,12 +6,5 @@
    |              | ATS              | OCaml           |
    |--------------+------------------+-----------------|
    |              | datatype wday =  | typfe wday =    |
-   |              | l Monday of ()   | l Monday        |
-   |--------------+------------------+-----------------|
-   | patern match | case hoge of     | match hoge with |
-   |              | x::xs => x       | x::xs -> x      |
-   |              | Monday() => ture | Monday => true  |
-   |              |                  |                 |
-
-** syntax syuger
-   
+   |              | l Monday of ()   | l Moonday        
+   - lam x => xは -<cloref1>なのか？
