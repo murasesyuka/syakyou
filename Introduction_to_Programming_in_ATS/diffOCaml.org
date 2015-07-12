@@ -6,5 +6,18 @@
    |              | ATS              | OCaml           |
    |--------------+------------------+-----------------|
    |              | datatype wday =  | typfe wday =    |
-   |              | l Monday of ()   | l Moonday        
+   |              | l Monday of ()   | l Monday        |
+   |--------------+------------------+-----------------|
+   | patern match | case hoge of     | match hoge with |
+   |              | x::xs => x       | x::xs -> x      |
+   |              | Monday() => ture | Monday => true  |
+   |              |                  |                 |
+
+** syntax syuger
+   
+** Question
+
+   - () {} は式なの？
+     
    - lam x => xは -<cloref1>なのか？
+     - lam (x:int): int =<cloref> x+1って、クロージャーって、s/cloref/cloref1/gではないの？
