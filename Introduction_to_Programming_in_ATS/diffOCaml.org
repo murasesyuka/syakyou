@@ -23,6 +23,9 @@
      - lam (x:int): int =<cloref> x+1って、クロージャーって、s/cloref/cloref1/gではないの？
        
    - val lst0 = list0_nil()/list0_length<char>(lst0))で、<char>の型引数は必須？推論しない？
+     
+   - [[http://jats-ug.metasepi.org/doc/ATS2/INT2PROGINATS/x1245.html][例: リストに対する関数テンプレート]]
+     - サンプルコードでビルドエラー。ATS2-Postiats-contrib を上手く設定出来ていない？
 
 ** bug?
 
