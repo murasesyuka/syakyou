@@ -24,4 +24,7 @@
        
    - val lst0 = list0_nil()/list0_length<char>(lst0))で、<char>の型引数は必須？推論しない？
 
-   
+** bug?
+
+   - [[http://jats-ug.metasepi.org/doc/ATS2/INT2PROGINATS/x1170.html]]
+     - コピペコードで、cでコンパイルエラー
