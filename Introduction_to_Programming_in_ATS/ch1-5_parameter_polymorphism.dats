@@ -3,8 +3,6 @@
 
 //patscc -DATS_MEMALLOC_LIBC ch2_tuple.dats 
 
-(* val _ = $showtype xyz *)
-
 (* function template **********************************************************)
 typedef charint = (char, int)
 typedef intchar = (int, char)
@@ -32,6 +30,23 @@ val f_2x_1 = compose<int,int,int> (times2, plus1)
 val f_2x_2 = compose<int,int,int> (plus1, times2)
 
 (* polymorphic function *******************************************************)
+
+  (* polymorphic datatype *)  
+datatype list0 (a:t@ype) =
+  | list0_nil  (a) of ()
+  | list0_cons (a) of (a, list0 a)
+
+fun{a:t@ype}
+list0_length (xs: list0 a):int =
+  (
+    case+ xs of
+    | list0_nil() => 0
+    | list0_cons(_,xs) => 1 + list0_length(xs)
+  )
+
+val lst0 = list0_nil()
+val lst1 = list0_cons('a', list0_nil())
+
 (* val _ = $showtype a *)
 
 implement main0 () = (
@@ -41,4 +56,6 @@ implement main0 () = (
   println! ( f_2x_1(2) );
   println! ( f_2x_2(2) );
 
+  println! (list0_length<char>(lst0));
+  println! (list0_length(lst1));
 )

@@ -21,3 +21,7 @@
      
    - lam x => xは -<cloref1>なのか？
      - lam (x:int): int =<cloref> x+1って、クロージャーって、s/cloref/cloref1/gではないの？
+       
+   - val lst0 = list0_nil()/list0_length<char>(lst0))で、<char>の型引数は必須？推論しない？
+
+   
