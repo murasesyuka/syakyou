@@ -32,13 +32,8 @@ val f_2x_2 = compose<int,int,int> (plus1, times2)
 (* polymorphic function *******************************************************)
 fun swap_boxed{a,b:type} (xy: (a, b)): (b, a) = (xy.1, xy.0)
 
-val A = '( 1, 2)
-val B = '( 3, 4)
-(* val AB = ( "A", "B" ) *)
-(* val BA1 = swap_boxed{string,string} (AB) *)
-//val BA2 = swap_boxed (AB) // omitting type arguments may be fine
-val AB = ( A, B )
-val BA1 = swap_boxed{...} (AB)
+val AB = ( box("A"), box("B") )
+val BA1 = swap_boxed (AB)
 
   (* polymorphic datatype *)  
 datatype list0 (a:t@ype) =
