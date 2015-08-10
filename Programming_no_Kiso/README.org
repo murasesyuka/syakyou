@@ -74,4 +74,13 @@
 
 ** 10章　再帰関数を使ったプログラミング
 
-   
+*** 10.2 リストの中の最小値を求める関数
+
+    ?. max_intだとエラー？
+
+    #+BEGIN_SRC 
+    utop # #use "ch10_minimum.ml";;
+    val minimum : [ `Deprecated_use_int_module ] list -> [ `Deprecated_use_int_module ] = <fun>                                             File "ch10_minimum.ml", line 12, characters 21-22:                                                                                      Error: This expression has type int but an expression was expected of type [ `Deprecated_use_int_module ]    
+    #+END_SRC
+
+    
