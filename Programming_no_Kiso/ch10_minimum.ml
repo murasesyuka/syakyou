@@ -1,12 +1,12 @@
 (* purpose : min *)
 (* minimum : int list -> int *)
 let rec minimum lst = match lst with
-    [] -> max_int
+    [] -> Int.max_value
   | x::xs -> 
      if x < minimum xs
      then x
      else minimum xs
-				     
+
 (* test *)
 let test1 = minimum [3] = 3
 let test2 = minimum [1;2] = 1
