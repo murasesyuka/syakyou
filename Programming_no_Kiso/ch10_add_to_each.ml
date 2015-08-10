@@ -4,9 +4,11 @@ let rec add_to_each n lst = match lst with
     [] -> []
   | x::xs -> (n :: x) :: add_to_each n xs
 
+(* purpose :  *)
+(* prefix : int list -> int list list *)
 let rec prefix lst = match lst with
     [] -> []
-  | x::xs -> []
+  | x::xs -> [x] :: add_to_each x (prefix xs)
 				     
 (* test *)
 let test1 = add_to_each 1 [] = []
