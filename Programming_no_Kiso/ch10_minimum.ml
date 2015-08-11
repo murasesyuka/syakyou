@@ -3,9 +3,10 @@
 let rec minimum lst = match lst with
     [] -> Int.max_value
   | x::xs -> 
-     if x < minimum xs
+     let min_rest = minimum xs in 
+     if x < min_rest
      then x
-     else minimum xs
+     else min_rest
 
 (* test *)
 let test1 = minimum [3] = 3
