@@ -18,7 +18,8 @@ let rec merge lst1 lst2 = match (lst1,lst2) with
   | (_, []) -> lst1
   | ([], _) -> lst2
   | (x::xs, y::ys) -> 
-     if x<y then x :: merge xs lst2
+     if x<y 
+     then x :: merge xs lst2
      else y :: merge lst1 ys
 
 (* test *)
