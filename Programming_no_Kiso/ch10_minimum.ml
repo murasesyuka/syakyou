@@ -58,3 +58,43 @@ let test7 = shukei [{namae = "foo"; tensuu = 80; seiseki = "A"};
 		    {namae = "bar"; tensuu = 70; seiseki = "B"};
 		    {namae = "baz"; tensuu = 60; seiseki = "C"};
 		    {namae = "hoo"; tensuu = 50; seiseki = "D"}] = (1,1,1,1)
+
+(* exercise 10.7 *)
+type date_t = {
+    month : int;
+    day : int;
+  }
+
+type blood_t = A |  B |  O | AB
+
+type person_t = {
+    height : int;
+    weight : int;
+    date : date_t;
+    blood_type : blood_t;
+  }
+
+
+(* purpose :  *)
+(* ketsueki_shukei : person_t list -> int * int * int * int *)
+let rec ketsueki_shukei lst = match lst with
+    [] -> (0,0,0,0)
+  | { height = h; weight = w; date = d; blood_type = blood } :: rest -> 
+     let (a,b,c,d) = ketsueki_shukei rest in
+     if blood = A      then (a+1, b, c, d)
+     else if blood = B then (a, b+1, c, d)
+     else if blood = O then (a, b, c+1, d)
+     else (a, b, c, d+1)
+
+
+(* test *)
+let test8 = ketsueki_shukei [{ height = 170; weight = 70;  date = {month = 7; day = 10}; blood_type = A };
+			     { height = 190; weight = 100; date = {month = 8; day = 12}; blood_type = O };
+			     { height = 150; weight = 40;  date = {month = 1; day = 10}; blood_type = AB }] = (1,0,1,1)
+
+let test8 = ketsueki_shukei [{ height = 170; weight = 70;  date = {month = 7; day = 10}; blood_type = A };
+			     { height = 190; weight = 100; date = {month = 8; day = 12}; blood_type = B };
+			     { height = 190; weight = 100; date = {month = 8; day = 12}; blood_type = O };
+			     { height = 150; weight = 40;  date = {month = 1; day = 10}; blood_type = B }] = (1,2,1,0)
+
+
