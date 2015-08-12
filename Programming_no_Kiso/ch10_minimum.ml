@@ -65,7 +65,7 @@ type date_t = {
     day : int;
   }
 
-type blood_t = A |  B |  O | AB
+type blood_t = A |  B |  O | AB | Non
 
 type person_t = {
     height : int;
@@ -97,4 +97,25 @@ let test8 = ketsueki_shukei [{ height = 170; weight = 70;  date = {month = 7; da
 			     { height = 190; weight = 100; date = {month = 8; day = 12}; blood_type = O };
 			     { height = 150; weight = 40;  date = {month = 1; day = 10}; blood_type = B }] = (1,2,1,0)
 
+
+(* exercise 10.8 *)
+(* purpose :  *)
+(* saita_ketsueki : person_t list -> blood_t *)
+let rec saita_ketsueki lst = 
+  let (a,b,o,ab) = ketsueki_shukei lst in
+  if a>b && a>o && a>ab then A
+  else if b>a && b>o && b>ab then B
+  else if o>a && o>b && o>ab then O
+  else if ab>a && ab>b && ab>o then AB
+  else Non
+				   
+(* test *)
+let test9 = saita_ketsueki [{ height = 170; weight = 70;  date = {month = 7; day = 10}; blood_type = A };
+			    { height = 190; weight = 100; date = {month = 8; day = 12}; blood_type = B };
+			    { height = 190; weight = 100; date = {month = 8; day = 12}; blood_type = O };
+			    { height = 150; weight = 40;  date = {month = 1; day = 10}; blood_type = B }] = B
+let test10 = saita_ketsueki [{ height = 170; weight = 70;  date = {month = 7; day = 10}; blood_type = A };
+			     { height = 190; weight = 100; date = {month = 8; day = 12}; blood_type = B };
+			     { height = 190; weight = 100; date = {month = 8; day = 12}; blood_type = O };
+			     { height = 150; weight = 40;  date = {month = 1; day = 10}; blood_type = A }] = A
 
