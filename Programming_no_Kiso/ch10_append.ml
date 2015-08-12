@@ -10,3 +10,20 @@ let test2 = append [] [1;2] = [1;2]
 let test3 = append [1;2] [] = [1;2]
 let test4 = append [1;2] [3;4] = [1;2;3;4]
 let test5 = append ["a";"b";"c"] ["d";"e"] = ["a";"b";"c";"d";"e"]
+
+(* purpose : *)
+(* merge : 'a list -> 'a list -> 'a list *)
+let rec merge lst1 lst2 = match (lst1,lst2) with
+    ([], []) -> []
+  | (_, []) -> lst1
+  | ([], _) -> lst2
+  | (x::xs, y::ys) -> []
+
+(* test *)
+let test6 = merge [] [] = []
+let test7 = merge [] [1;2] = [1;2]
+let test8 = merge [1;2] [] = [1;2]
+let test9 = merge [1;2] [3;4] = [1;2;3;4]
+let test0 = merge ["a";"b";"c"] ["d";"e"] = ["a";"b";"c";"d";"e"]
+
+
