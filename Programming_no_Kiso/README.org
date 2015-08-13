@@ -83,4 +83,24 @@
     val minimum : [ `Deprecated_use_int_module ] list -> [ `Deprecated_use_int_module ] = <fun>                                             File "ch10_minimum.ml", line 12, characters 21-22:                                                                                      Error: This expression has type int but an expression was expected of type [ `Deprecated_use_int_module ]    
     #+END_SRC
 
-    
+*** 10.7 駅名・駅間リストからの情報の取得
+
+    !. EUC-JPだと上手くいかないので、UTF-8にする
+
+    [[http://pllab.is.ocha.ac.jp/~asai/book/Linux.html][サポートページ]] ではLANG=en_US.ISO88591 ocaml等で、EUCに切り替えろと書いているが
+    UTF-8に合わせる
+
+**** change to UTF-8
+     
+     #+BEGIN_SRC 
+     $ emacs metro.ml
+     #+END_SRC
+     
+**** edit .ocamlinit
+     
+     #+BEGIN_SRC
+     $ cat .ocamlinit
+     ...
+     let printer ppf = Format.fprintf ppf "\"%s\"";;
+     #install_printer printer
+     #+END_SRC
