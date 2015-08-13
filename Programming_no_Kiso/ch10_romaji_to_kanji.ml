@@ -15,13 +15,21 @@ let test2 = romaji_to_kanji "yotsuya" global_ekimei_list = "四ツ谷"
 (* purpose :  *)
 (* get_ekikan_kyori : string -> string -> elimei_t list -> float *)
 let rec get_ekikan_kyori eki1 eki2 lst = match lst with
-    [] -> 0.0
+    [] -> Float.infinity
   | {kiten=kiten; shuten=shuten; keiyu=keiyu; kyori=kyori; jikan=j}::rest -> 
-     if kiten = eki1
-     then if shuten = eki2 then kyori
-	  else 0.0
+     if kiten = eki1 
+     then if shuten = eki2 
+	  then kyori
+	  else Float.infinity
+     else if kiten = eki2 
+     then if shuten = eki1 
+	  then kyori
+	  else Float.infinity
      else get_ekikan_kyori eki1 eki2 rest
 
 let test3 = get_ekikan_kyori "代々木上原" "代々木公園" global_ekikan_list = 1.0
+let test4 = get_ekikan_kyori "代々木上原" "明治神宮前" global_ekikan_list = Float.infinity
+let test3 = get_ekikan_kyori "営団成増" "和光市" global_ekikan_list = 2.1
+									      
 
 
