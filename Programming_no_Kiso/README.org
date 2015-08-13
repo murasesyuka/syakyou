@@ -71,3 +71,54 @@
 *** 9。7 駅名リストと駅間知るとの整備
 
     [[http://pllab.is.ocha.ac.jp/~asai/book/Top.html][著者のサポートページ]]より、メトロネットワークデータ.mlをDL
+
+** 10章　再帰関数を使ったプログラミング
+
+*** 10.2 リストの中の最小値を求める関数
+
+    ?. max_intだとエラー？
+
+    #+BEGIN_SRC 
+    utop # #use "ch10_minimum.ml";;
+    val minimum : [ `Deprecated_use_int_module ] list -> [ `Deprecated_use_int_module ] = <fun>                                             File "ch10_minimum.ml", line 12, characters 21-22:                                                                                      Error: This expression has type int but an expression was expected of type [ `Deprecated_use_int_module ]    
+    #+END_SRC
+
+*** 10.7 駅名・駅間リストからの情報の取得
+
+    !. EUC-JPだと上手くいかないので、UTF-8にする
+
+    [[http://pllab.is.ocha.ac.jp/~asai/book/Linux.html][サポートページ]] ではLANG=en_US.ISO88591 ocaml等で、EUCに切り替えろと書いているが
+    UTF-8に合わせる
+
+**** change to UTF-8
+     
+     #+BEGIN_SRC 
+     $ emacs metro.ml
+     #+END_SRC
+     
+**** edit .ocamlinit
+     
+     #+BEGIN_SRC
+     $ cat .ocamlinit
+     ...
+     let printer ppf = Format.fprintf ppf "\"%s\"";;
+     #install_printer printer
+     #+END_SRC
+     
+**** on utop
+
+     #+BEGIN_SRC
+     ─( 09:57:59 )─< command 3 >──────────────────────────────────────────────────────────────────────────────{ counter: 0 }─
+     utop # #use "DL/metro.ml";;
+     type ekimei_t = { kanji : string; kana : string; romaji : string; shozoku : string; }
+     type ekikan_t = { kiten : string; shuten : string; keiyu : string; kyori : float; jikan : int; }                        val global_ekimei_list : ekimei_t list =                                                                                
+       [{kanji = "代々木上原"; kana = "よよぎうえはら"; romaji = "yoyogiuehara"; shozoku = "千代田線"};
+     ...
+       {kiten = "錦糸町"; shuten = "押上"; keiyu = "半蔵門線"; kyori = 1.4; jikan = ...}; ...]
+
+     ─( 10:33:48 )─< command 4 >──────────────────────────────────────────────────────────────────────────────{ counter: 0 }─
+     utop # #use "ch10_romaji_to_kanji.ml";;
+     val romaji_to_kanji : string -> ekimei_t list -> string = <fun>
+     val test0 : bool = true
+     val test2 : bool = true
+     #+END_SRC

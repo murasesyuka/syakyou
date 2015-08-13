@@ -26,16 +26,26 @@ type date_t = {
     month : int;
     day : int;
   }
-		 
+
+type blood_t = A |  B |  O | AB
+
 type person_t = {
     height : int;
     weight : int;
     date : date_t;
+    blood_type : blood_t;
   }
 
-let person1 = { height = 170; weight = 70; date = {month = 7; day = 10}}
+let person1 = { height = 170; weight = 70;  date = {month = 7; day = 10}; blood_type = A }
+let person2 = { height = 190; weight = 100; date = {month = 8; day = 12}; blood_type = O }
+let person3 = { height = 150; weight = 40;  date = {month = 1; day = 10}; blood_type = AB }
+		
 	      
 (* purpose : todo *)
 (* todo : *)
 
 (* test *)
+
+
+
+
