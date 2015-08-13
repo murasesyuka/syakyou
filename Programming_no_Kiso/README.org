@@ -104,3 +104,21 @@
      let printer ppf = Format.fprintf ppf "\"%s\"";;
      #install_printer printer
      #+END_SRC
+     
+**** on utop
+
+     #+BEGIN_SRC
+     ─( 09:57:59 )─< command 3 >──────────────────────────────────────────────────────────────────────────────{ counter: 0 }─
+     utop # #use "DL/metro.ml";;
+     type ekimei_t = { kanji : string; kana : string; romaji : string; shozoku : string; }
+     type ekikan_t = { kiten : string; shuten : string; keiyu : string; kyori : float; jikan : int; }                        val global_ekimei_list : ekimei_t list =                                                                                
+       [{kanji = "代々木上原"; kana = "よよぎうえはら"; romaji = "yoyogiuehara"; shozoku = "千代田線"};
+     ...
+       {kiten = "錦糸町"; shuten = "押上"; keiyu = "半蔵門線"; kyori = 1.4; jikan = ...}; ...]
+
+     ─( 10:33:48 )─< command 4 >──────────────────────────────────────────────────────────────────────────────{ counter: 0 }─
+     utop # #use "ch10_romaji_to_kanji.ml";;
+     val romaji_to_kanji : string -> ekimei_t list -> string = <fun>
+     val test0 : bool = true
+     val test2 : bool = true
+     #+END_SRC
