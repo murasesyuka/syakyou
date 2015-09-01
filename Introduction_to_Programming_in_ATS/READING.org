@@ -4,13 +4,15 @@
 
   cloref1, cloref違いは？
   
-  関数テンプレート、C++のtemplateに意味的に近い？
+  関数テンプレート、C++のtemplateに機能は近い？
   
   例外は、飛ばす
 
 ** 参照
+   
    ATSで参照は使わない方がよい。mallocと線形型で頑張るべき
-   使用するならOCaml使った方が幸せ
+   
+   GCを使用するならOCaml使った方が幸せ
 
    !rはポインタのdereferenceでしかない？
 
@@ -25,17 +27,14 @@
 
    べつのよい説明の文章を、やくしたのでそちらで
 
-   「型についてさらに」
+   [[https://github.com/jats-ug/translate/blob/master/Web/blog.steinwaywu.com/more-on-types.md][型についてさらに]]
 
    抽象型、C++の不定型？
 
 
-
 ** Lambdaカ娘
 
-   ATS/LF
-
-   
+   ATS/LFの薄い本読み
 
 ** 依存型
 
