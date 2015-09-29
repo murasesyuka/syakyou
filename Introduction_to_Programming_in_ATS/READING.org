@@ -56,26 +56,15 @@
    |            |                |            |   |
    |            |                |            |   |
 
-*** depend
+*** depend graph
 
-    - ok
-      - Type -> Sort
-      - Prop -> Sort
-
-    - ng
-      - Sort -> Sort
-      - Type -> Type
-      - Prop -> Prop
-
-      - Type -> Prop
-      - Prop -> Type
-
-*** depend ilist
-
+                     /----\ ( Sort not depend to Sort )
+                    /      *
+                    |
                 |-- Sort -------------------|
                 |                           |
-         /-->   | xs1 : ilist               |   <--\
-        /       | xs2 : ilist               |       \ (depend)
+         /-->   | xs1 : ilist   <------------------\
+        /       | xs2 : ilist               |       \ ( Type/Prop depend to Srot)
         |       | x:int l i<=0 ; i< max_int |        |
         |       |                           |        |
     |-- Type -------------------+-- Prop ----------------|
@@ -83,7 +72,11 @@
     | gflist_vt(a, xs1)         | REVAPP(xs1, xs2, res ) |
     | gflist_vt(a, xs2)         |                        |
     |                           |                        |
-	
+    |---------------------------+------------------------|
+	                                     |
+                       *                     / ( Prop/Type not depend to Type/Prop )
+                        \-------------------/
+
     
 ** タプルを利用
 
