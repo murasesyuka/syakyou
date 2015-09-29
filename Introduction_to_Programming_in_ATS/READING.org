@@ -39,3 +39,55 @@
 ** 依存型
 
    
+* 「ATSプログラミング入門」読書会@名古屋 第2回
+
+** Sort/Type/Prop
+
+   |            |                |            |   |
+   |            | type,t@ype,t0p |            |   |
+   | Sort       | int(Num)       |            |   |
+   | [datasort] | 0,1,2,...      |            |   |
+   |------------+----------------+------------+---|
+   |            | int(32bit)     | proof      |   |
+   | Type       | 0,1,2,..       | Prop/View  |   |
+   | [datatype] |                | [dataprop] |   |
+   |------------+----------------+------------+---|
+   |            | 0,1,2,...      |            |   |
+   |            |                |            |   |
+   |            |                |            |   |
+
+*** depend graph
+
+                     /----\ ( Sort not depend to Sort )
+                    /      *
+                    |
+                |-- Sort -------------------|
+                |                           |
+         /-->   | xs1 : ilist   <------------------\
+        /       | xs2 : ilist               |       \ ( Type/Prop depend to Srot)
+        |       | x:int l i<=0 ; i< max_int |        |
+        |       |                           |        |
+    |-- Type -------------------+-- Prop ----------------|
+    |                           |                        |
+    | gflist_vt(a, xs1)         | REVAPP(xs1, xs2, res ) |
+    | gflist_vt(a, xs2)         |                        |
+    |                           |                        |
+    |---------------------------+------------------------|
+	                                     |
+                       *                     / ( Prop/Type not depend to Type/Prop )
+                        \-------------------/
+
+    
+** タプルを利用
+
+   値域、余域をタプルで表現する
+   
+** istot/isfun
+
+   ATSで頻出する
+
+** datasort/datatype/dataprop
+
+** ch13. view type
+
+   うつろいゆくものを観(view)測するから
