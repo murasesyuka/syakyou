@@ -55,7 +55,36 @@
    |            | 0,1,2,...      |            |   |
    |            |                |            |   |
    |            |                |            |   |
-   
+
+*** depend
+
+    - ok
+      - Type -> Sort
+      - Prop -> Sort
+
+    - ng
+      - Sort -> Sort
+      - Type -> Type
+      - Prop -> Prop
+
+      - Type -> Prop
+      - Prop -> Type
+
+*** depend ilist
+
+                |-- Sort -------------------|
+                |                           |
+         /-->   | xs1 : ilist               |   <--\
+        /       | xs2 : ilist               |       \ (depend)
+        |       | x:int l i<=0 ; i< max_int |        |
+        |       |                           |        |
+    |-- Type -------------------+-- Prop ----------------|
+    |                           |                        |
+    | gflist_vt(a, xs1)         | REVAPP(xs1, xs2, res ) |
+    | gflist_vt(a, xs2)         |                        |
+    |                           |                        |
+	
+    
 ** タプルを利用
 
    値域、余域をタプルで表現する
