@@ -43,6 +43,7 @@
 
 ** Sort/Type/Prop
 
+   #+BEGIN_EXAMPLE
    |            |                |            |   |
    |            | type,t@ype,t0p |            |   |
    | Sort       | int(Num)       |            |   |
@@ -55,9 +56,11 @@
    |            | 0,1,2,...      |            |   |
    |            |                |            |   |
    |            |                |            |   |
+   #+END_EXAMPLE
 
 *** depend graph
 
+    #+BEGIN_EXAMPLE
                      /----\ ( Sort not depend to Sort )
                     /      *
                     |
@@ -76,7 +79,7 @@
 	                                     |
                        *                     / ( Prop/Type not depend to Type/Prop )
                         \-------------------/
-
+    #+END_EXAMPLE
     
 ** タプルを利用
 
