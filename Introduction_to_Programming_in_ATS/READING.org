@@ -67,7 +67,7 @@
                 |-- Sort -------------------|
                 |                           |
          /-->   | xs1 : ilist   <------------------\
-        /       | xs2 : ilist               |       \ ( Type/Prop depend to Srot)
+        /       | xs2 : ilist               |       \ ( Type/Prop depend to Sort)
         |       | x:int l i<=0 ; i< max_int |        |
         |       |                           |        |
     |-- Type -------------------+-- Prop ----------------|
