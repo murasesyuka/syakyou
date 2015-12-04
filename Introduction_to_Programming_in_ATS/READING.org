@@ -102,3 +102,12 @@
   | メモリ確保 | GC使用   | 線形型     |
 
   データ型(GC)からデータ観型(線形型)の移項は可能
+
+  #+BEGIN_EXAMPLE
+  RingBuf new  ---> [...]
+  
+          free ---> [...] if UnboxTyep -->[..]
+                                       -->[..]
+                                       -->[..]
+  #+END_EXAMPLE
+
