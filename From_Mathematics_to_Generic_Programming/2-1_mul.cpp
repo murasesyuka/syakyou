@@ -48,8 +48,14 @@ int mult_acc4(int r, int n, int a)
 	}
 }
 
+int multiply2(int n , int a){
+	if (n == 1) return a;
+	return mult_acc4(a, n-1, a);
+}
+
 int main(){
 	using namespace std;
+	
 	cout << multiply_by_15(3) << endl;
-	cout << mult_acc4(0, 15, 3) << endl;
+	cout << multiply2(15, 3) << endl;
 }
