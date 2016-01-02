@@ -36,15 +36,17 @@ int mult_acc0(int r, int n, int a)
 	}
 }
 
-int mult_acc1(int r, int n, int a)
+int mult_acc2(int r, int n, int a)
 {
-	if (n == 1) return r + a;
-	if (odd(n)) r = r+a;
-	return mult_acc1( r, half(n), a+a);
+	if (odd(n)) {
+		r = r+a;
+		if (n == 1) return r;
+	}
+	return mult_acc2( r, half(n), a+a);
 }
 
 int main(){
 	using namespace std;
 	cout << multiply_by_15(3) << endl;
-	cout << mult_acc1(0, 15, 3) << endl;
+	cout << mult_acc2(0, 15, 3) << endl;
 }
