@@ -53,20 +53,20 @@ int multiply2(int n , int a){
 	return mult_acc4(a, n-1, a);
 }
 
-int multiply3(int n , int a){
+int multiply4(int n , int a){
 	while (!odd(n)) {
 		a = a + a;
 		n = half(n);
 	}
 	if (n == 1) return a;
-	return mult_acc4(a, n-1, a);
+	return mult_acc4(a,half( n-1), a+a);
 }
 
 
 
 int main(){
 	using namespace std;
-	g di
+	
 	cout << multiply_by_15(3) << endl;
-	cout << multiply3(15, 3) << endl;
+	cout << multiply4(15, 3) << endl;
 }
