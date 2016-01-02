@@ -18,7 +18,15 @@ int multiply1(int n, int a)
 	return result;
 }
 
+int multiply_by_15(int a)
+{
+	int b = (a+a) + a;
+	int c = b+b;
+	return (c+c) +b;
+}
+
+
 int main(){
 	using namespace std;
-	cout << multiply1(41,59) << endl;
+	cout << multiply_by_15(3) << endl;
 }
