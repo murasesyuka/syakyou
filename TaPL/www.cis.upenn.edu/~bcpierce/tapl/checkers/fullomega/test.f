@@ -94,6 +94,7 @@ lambda X.
         (pair [List X] [List X] (nil [X]) (nil [X]))))
     as List X; 
 
+/* exer.24.2.1 */
 stackADT =
 {*List Nat,
   {new = nil [Nat]}}
@@ -108,7 +109,6 @@ stack2ADT =
        {new:Stack,
        isempty:Stack->Bool}};
 
-       
 stack3ADT =
       {*List Nat,
        {new = nil [Nat],
@@ -126,7 +126,7 @@ stack3ADT =
 let {Stack,stack} = stack3ADT in
       stack.top (stack.push 5 (stack.push 3 stack.new));
 
-/*
+/* 
 let {Stack,stack} = stack3ADT in
       stack.pop (stack.push 7 (stack.push 4 stack.new));
       */
@@ -155,6 +155,7 @@ let {FF,ff} =
 ff.toggle (ff.toggle ff.new);
 */
 
+/* exer.24.2.2 *//*
 counterADT =
       {*Ref Nat,
        {new = lambda _:Unit. ref 1,
@@ -162,4 +163,4 @@ counterADT =
         inc = lambda r:Ref Nat. r := succ(!r)}}
       as { Some Counter,
       {new:Unit->Counter,get:Counter->Nat,inc:Counter->Unit}};
-
+*/
