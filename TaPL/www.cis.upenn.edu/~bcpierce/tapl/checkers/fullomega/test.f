@@ -144,7 +144,10 @@ counter1ADT =
 let {Counter,cnt} = counter1ADT in
       cnt.get (cnt.inc (cnt.inc cnt.new));
 
-      
+/*      
+iseven = 
+   lambda n:Nat. if iszero n then true else false)
+*/  
 
       
 /*
