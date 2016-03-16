@@ -169,7 +169,6 @@ let {FF,ff} =
       
 /* exer.24.2.2 */
 
-
 counterADT =
       {*Ref Nat,
        {new = lambda _:Unit. ref 1,
@@ -181,3 +180,19 @@ counterADT =
          get: Counter->Nat,
          inc: Counter->Unit}};
 
+
+/* exer.24.2.3 */
+
+/* exer.24.2.4 */
+
+Counter = 
+      {Some X,
+       {state:X, 
+       methods: {get:X->Nat, inc:X->X}}};
+      
+c = {* Ref Nat,
+       {state = ref 5,
+        methods = 
+        {get = lambda x: Ref Nat. !x,
+        inc = lambda x: Ref Nat. (x := succ( !x); x) }}}
+        as Counter;
