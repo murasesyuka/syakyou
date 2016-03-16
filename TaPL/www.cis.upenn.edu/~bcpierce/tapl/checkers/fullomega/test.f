@@ -96,32 +96,34 @@ lambda X.
 
 /* exer.24.2.1 */
 stackADT =
-{*List Nat,
-  {new = nil [Nat]}}
-  as {Some Stack, {new:Stack}};
+      {*List Nat,
+       {new = nil [Nat]}}
+       as 
+      {Some Stack, {new:Stack}};
 
 stack2ADT =
       {*List Nat,
        {new = nil [Nat],
-       isempty = isnil [Nat]}}
+        isempty = isnil [Nat]}}
        as
-       {Some Stack, 
+      {Some Stack, 
        {new:Stack,
        isempty:Stack->Bool}};
 
 stack3ADT =
       {*List Nat,
        {new = nil [Nat],
-       push = lambda n:Nat. lambda l:List Nat. cons [Nat] n l,
-       top = lambda l:List Nat. head [Nat] l,
-       pop = lambda l:List Nat. tail [Nat] l,
-       isempty = isnil [Nat]}}
-       as {Some Stack,
+        push = lambda n:Nat. lambda l:List Nat. cons [Nat] n l,
+        top = lambda l:List Nat. head [Nat] l,
+        pop = lambda l:List Nat. tail [Nat] l,
+        isempty = isnil [Nat]}}
+       as 
+      {Some Stack,
        {new:Stack,
-       push:Nat->Stack->Stack,
-       top:Stack->Nat,
-       pop:Stack->Stack,
-       isempty:Stack->Bool}};
+        push:Nat->Stack->Stack,
+        top:Stack->Nat,
+        pop:Stack->Stack,
+        isempty:Stack->Bool}};
 
 let {Stack,stack} = stack3ADT in
       stack.top (stack.push 5 (stack.push 3 stack.new));
@@ -142,7 +144,10 @@ counter1ADT =
 let {Counter,cnt} = counter1ADT in
       cnt.get (cnt.inc (cnt.inc cnt.new));
 
-      /*
+      
+
+      
+/*
 let {Counter,cnt} = counter1ADT in
 let {FF,ff} = 
       {*Counter,
@@ -150,17 +155,25 @@ let {FF,ff} =
         read = lambda c:Counter. iseven (counter.get c),
         toggle=lambda c:Counter. counter.inc c,
         reset =lambda c:Counter. counter.new}}
-     as { Some FF,
-        {new: FF, read: FF->Bool, toggle: FF->FF, reset:FF->FF}} in
-ff.toggle (ff.toggle ff.new);
+       as
+       {Some FF,
+        {new: FF,
+         read: FF->Bool, 
+         toggle: FF->FF,
+         reset:FF->FF}} in
+        ff.toggle (ff.toggle ff.new);
 */
+      
+/* exer.24.2.2 */
 
-/* exer.24.2.2 *//*
+/*
 counterADT =
       {*Ref Nat,
        {new = lambda _:Unit. ref 1,
         get = lambda r:Ref Nat. !r,
         inc = lambda r:Ref Nat. r := succ(!r)}}
-      as { Some Counter,
-      {new:Unit->Counter,get:Counter->Nat,inc:Counter->Unit}};
+      as 
+       {Some Counter,
+        {new:Unit->Counter,get:Counter->Nat,inc:Counter->Unit}};
+      
 */
